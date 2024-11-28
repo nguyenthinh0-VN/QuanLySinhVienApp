@@ -15,8 +15,8 @@ public class ArrayListMockDatabase {
 	
 	public static void initDatabase() {
 		database = new ArrayList<SinhVien>();
-		insertSinhVien(new SinhVienKTPM("Teo", "TPHCM", null, 5, 5, 5));
-		insertSinhVien(new SinhVienKT("Tý", "HN", null, 2, 2));
+		insertSinhVien(new SinhVienKTPM(1, "Teo", "TPHCM", null, 5, 5, 5));
+		insertSinhVien(new SinhVienKT(2, "Tý", "HN", null, 2, 2));
 	}
 	
 	public static void insertSinhVien(SinhVien sv) {

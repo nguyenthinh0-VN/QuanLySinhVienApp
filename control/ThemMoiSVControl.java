@@ -27,20 +27,20 @@ public class ThemMoiSVControl {
 		themSVDAO = _themSVDAO;
 	}
 
-	public void taoSinhVien(String hoTen, String diaChi, Date ngaySinh, double diemJava, double diemCss, double diemHtml) {
+	public void taoSinhVien(int mssv, String hoTen, String diaChi, Date ngaySinh, double diemJava, double diemCss, double diemHtml) {
 		//tạo đối tượng SinhVienKTPM
 		//đối tượng sinh viên phần mềm
-		SinhVienKTPM svpm = new SinhVienKTPM(hoTen, diaChi, ngaySinh, diemJava, diemCss, diemHtml);
+		SinhVienKTPM svpm = new SinhVienKTPM(mssv, hoTen, diaChi, ngaySinh, diemJava, diemCss, diemHtml);
 
 		doThemSV(svpm);
 		
 	}
 	
 	
-	public void taoSinhVien(String hoTen, String diaChi, Date ngaySinh, double diemMarketing, double diemSales) {
+	public void taoSinhVien(int mssv, String hoTen, String diaChi, Date ngaySinh, double diemMarketing, double diemSales) {
 
 		//đối tượng sinh viên kinh tế
-		SinhVienKT svkt = new SinhVienKT(hoTen, diaChi, ngaySinh, diemMarketing, diemSales);
+		SinhVienKT svkt = new SinhVienKT(mssv, hoTen, diaChi, ngaySinh, diemMarketing, diemSales);
 
 		doThemSV(svkt);
 	}

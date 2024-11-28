@@ -3,7 +3,7 @@ package entity;
 import java.util.Date;
 
 public abstract class SinhVien {
-	
+	private int mssv;
 	private String hoTen;
 	private String nganh;
 	private String diaChi;
@@ -14,7 +14,8 @@ public abstract class SinhVien {
 		
 	}
 
-	public SinhVien(String hoTen, String nganh, String diaChi, Date ngaySinh) {
+	public SinhVien(int mssv, String hoTen, String nganh, String diaChi, Date ngaySinh) {
+		this.mssv = mssv;
 		this.hoTen = hoTen;
 		this.nganh = nganh;
 		this.diaChi = diaChi;
@@ -37,6 +38,14 @@ public abstract class SinhVien {
 	}
 	
 	protected abstract double tinhDiemTB();
+
+	public int getMssv() {
+		return mssv;
+	}
+
+	public void setMssv(int mssv) {
+		this.mssv = mssv;
+	}
 
 	public String getHoTen() {
 		return hoTen;

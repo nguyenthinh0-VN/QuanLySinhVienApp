@@ -15,7 +15,7 @@ public class ThongTinSVCUI {
 	//fields
 	private PrintWriter screenOutput = null;
 	private Scanner keyBoardInput  = null;
-	private String hoTenPrompt, nganhPrompt, ngaySinhPrompt, 
+	private String mssvPrompt, hoTenPrompt, nganhPrompt, ngaySinhPrompt,
 	diaChiPrompt, diemJavaPrompt, diemCssPrompt, diemHtmlPrompt,
 	diemMarketingPrompt, diemSalesPrompt;
 	private SimpleDateFormat simpleFormat = null;
@@ -32,6 +32,7 @@ public class ThongTinSVCUI {
 	public ThongTinSVCUI(PrintWriter _screenOutput, Scanner _keyBoardInput) {
 		screenOutput = _screenOutput;
 		keyBoardInput = _keyBoardInput;
+		mssvPrompt = "Nhập MSSV: ";
 		hoTenPrompt = "Nhập Họ Tên: ";
 		nganhPrompt = "Nhập Chuyên Ngành [\"PM\" / \"KT\"]: ";
 		ngaySinhPrompt = "Nhập Ngày Sinh (dd/MM/yyyy): ";
@@ -46,6 +47,8 @@ public class ThongTinSVCUI {
 
 
 	public void nhapThongTinSV() {
+		screenOutput.print(mssvPrompt);screenOutput.flush();
+		int mssv = keyBoardInput.nextInt();
 		screenOutput.print(hoTenPrompt);screenOutput.flush();
 		String hoTen = keyBoardInput.nextLine();
 		screenOutput.print(nganhPrompt);screenOutput.flush();
@@ -62,7 +65,7 @@ public class ThongTinSVCUI {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 
 		if("KTPM".equalsIgnoreCase(nganh)) {
 			screenOutput.print(diemJavaPrompt);screenOutput.flush();
@@ -75,7 +78,7 @@ public class ThongTinSVCUI {
 			
 			//gửi thông điệp cho đối tượng ThemMoiSVControl
 			//kèm theo dữ liệu là các biến
-			themSVControl.taoSinhVien(hoTen, diaChi, ngaySinhJava, diemJava, diemCss, diemHtml);
+			themSVControl.taoSinhVien(mssv, hoTen, diaChi, ngaySinhJava, diemJava, diemCss, diemHtml);
 		}
 		
 		if("KT".equalsIgnoreCase(nganh)) {
@@ -84,7 +87,7 @@ public class ThongTinSVCUI {
 			screenOutput.print(diemSalesPrompt);screenOutput.flush();
 			double diemSales = keyBoardInput.nextDouble();
 			
-			themSVControl.taoSinhVien(hoTen, diaChi, ngaySinhJava, diemSales, diemMarketing, diemSales);
+			themSVControl.taoSinhVien(mssv, hoTen, diaChi, ngaySinhJava, diemSales, diemMarketing, diemSales);
 		}
 	}
 
